@@ -145,6 +145,15 @@ npx husky add .husky/pre-push "npm run tidy && npm run lint && npm run test -- -
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+npm run lint && npm run test -- --watchAll=false --passWithNoTests
+```
+
+`.husky/pre-push`
+
+```sh
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
 npm run tidy && npm run lint && npm run test -- --watchAll=false --passWithNoTests
 ```
 
