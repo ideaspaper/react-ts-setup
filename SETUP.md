@@ -70,6 +70,7 @@ node_modules/*
 
 # don't lint build output (make sure it's set to your correct build folder name)
 dist
+build
 
 # don't lint nyc coverage output
 coverage
@@ -135,20 +136,10 @@ npm i -D prettier
 npm i -D husky
 npm pkg set scripts.prepare="husky install"
 npm run prepare
-npx husky add .husky/pre-commit "npm run lint && npm run test -- --watchAll=false --passWithNoTests"
-npx husky add .husky/pre-push "npm run tidy && npm run lint && npm run test -- --watchAll=false --passWithNoTests"
+npx husky add .husky/pre-commit "npm run tidy && npm run lint && npm run test -- --watchAll=false --passWithNoTests"
 ```
 
 `.husky/pre-commit`
-
-```sh
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-npm run lint && npm run test -- --watchAll=false --passWithNoTests
-```
-
-`.husky/pre-push`
 
 ```sh
 #!/usr/bin/env sh
