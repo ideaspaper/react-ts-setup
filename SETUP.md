@@ -111,6 +111,14 @@ npm i -D prettier
 }
 ```
 
+`.prettierignore`
+
+```
+build
+dist
+coverage
+```
+
 `package.json`
 
 ```json
