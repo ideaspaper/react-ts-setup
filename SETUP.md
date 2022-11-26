@@ -138,6 +138,30 @@ coverage
 
 [Source](https://blog.logrocket.com/using-prettier-eslint-automate-formatting-fixing-javascript/#managing-eslint-rules-avoid-conflict-prettier)
 
+## lint-staged
+
+Run linters **against staged Git files** and don't let 💩 slip into your code base!
+
+```
+npm i -D lint-staged
+```
+
+`package.json`
+
+```json
+...
+  "lint-staged": {
+    "*.{js,ts,tsx,json,md,html}": [
+      "prettier --write"
+    ]
+  }
+...
+```
+
+**References**
+
+- [npm - lint-staged](https://www.npmjs.com/package/lint-staged)
+
 ## Husky
 
 Husky is a package that allows custom scripts to be ran against your Git repository. These scripts trigger actions in response to specific events, so they can help you automate your development lifecycle.
@@ -155,7 +179,7 @@ npx husky add .husky/pre-commit "npm run tidy && npm run lint && npm run test --
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run tidy && npm run lint && npm run test -- --watchAll=false --passWithNoTests
+npx lint-staged && npm run lint && npm run test -- --watchAll=false --passWithNoTests
 ```
 
 **References**
